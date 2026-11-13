@@ -1,4 +1,4 @@
-# Travel Together — frontend
+# Travel Together [frontend]
 
 React app for travel groups, shared stays, cost splits, friends, maps and chat. Bookings are demo confirmations, without payments.
 
