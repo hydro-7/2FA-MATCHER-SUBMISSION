@@ -1,0 +1,74 @@
+.discovery-help {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.filter-group > .boxed > input {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  margin: 0;
+  padding: 10px 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+.filter-group > .boxed > input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.filter-group > .boxed:focus-within {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.shared-result-filter summary {
+  cursor: pointer;
+}
+.shared-result-filter[open] > * + * {
+  margin-top: 12px;
+}
+.shared-result-filter > p {
+  margin-bottom: 12px;
+}
+.match-people {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.match-people > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.match-people svg {
+  flex-shrink: 0;
+}
+.discovery-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 0;
+}
+.discovery-pagination > span {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+.discovery-pagination button {
+  min-height: 42px;
+  font-size: 13px;
+}
+.results-head {
+  scroll-margin-top: 96px;
+}

@@ -1,0 +1,365 @@
+:root {
+  color-scheme: light;
+  --page-max: 1680px;
+  --gutter: clamp(16px, 4vw, 64px);
+  --header-h: 77px;
+  --footer-h: 64px;
+  --brand: #0057ff;
+  --brand-dark: #0046cc;
+  --brand-soft: #eaf1ff;
+  --ink: #0b1325;
+  --ink-soft: #4b5568;
+  --surface: #ffffff;
+  --page: #f7f9fd;
+  --ring: #e6ebf4;
+  --subtle: #f1f4fa;
+  --glow: #e7eefb;
+  --green-soft: #dcfce7;
+  --green-ink: #15803d;
+  --amber-soft: #fff4e0;
+  --amber-ink: #b45309;
+  --amber-line: #fde68a;
+  --red-soft: #fee2e2;
+  --red-ink: #b91c1c;
+  --shadow: rgb(11 19 37 / 6%);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--page);
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+}
+
+/* Dark theme: an explicit choice, or the system setting when none is saved. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --brand: #4d8dff;
+  --brand-dark: #2f74f5;
+  --brand-soft: #111a2e;
+  --ink: #e7ecf6;
+  --ink-soft: #a3a3a3;
+  --surface: #0d0d0d;
+  --page: #000000;
+  --ring: #262626;
+  --subtle: #171717;
+  --glow: #000000;
+  --green-soft: #0e2d1e;
+  --green-ink: #4ade80;
+  --amber-soft: #2d220f;
+  --amber-ink: #fbbf24;
+  --amber-line: #5a4414;
+  --red-soft: #3a1717;
+  --red-ink: #f87171;
+  --shadow: rgb(0 0 0 / 35%);
+  --navy: #e7ecf6;
+  --blue: #4d8dff;
+  --line: #262626;
+  --muted: #a3a3a3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --brand: #4d8dff;
+    --brand-dark: #2f74f5;
+    --brand-soft: #111a2e;
+    --ink: #e7ecf6;
+    --ink-soft: #a3a3a3;
+    --surface: #0d0d0d;
+    --page: #000000;
+    --ring: #262626;
+    --subtle: #171717;
+    --glow: #000000;
+    --green-soft: #0e2d1e;
+    --green-ink: #4ade80;
+    --amber-soft: #2d220f;
+    --amber-ink: #fbbf24;
+    --amber-line: #5a4414;
+    --red-soft: #3a1717;
+    --red-ink: #f87171;
+    --shadow: rgb(0 0 0 / 35%);
+    --navy: #e7ecf6;
+    --blue: #4d8dff;
+    --line: #262626;
+    --muted: #a3a3a3;
+  }
+}
+
+/* OSM tiles are light-only; invert them so the map matches the dark theme. */
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .leaflet-tile-pane {
+    filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+  }
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: min(var(--page-max), 100% - 2 * var(--gutter));
+  min-height: 76px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.logo-mark {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.topnav {
+  display: flex;
+  gap: 6px;
+  margin-inline: auto;
+}
+
+.topnav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.topnav a:hover {
+  background: var(--subtle);
+}
+
+.topnav a.active {
+  background: var(--brand-soft);
+  color: var(--brand);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--subtle);
+  color: var(--ink);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pill-btn kbd {
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.round-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--subtle);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.round-btn .ping {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--ring);
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.me {
+  position: relative;
+}
+
+.me-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  min-height: 0;
+  padding: 0;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0057ff, #7c3aed);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgb(11 19 37 / 18%);
+  cursor: pointer;
+}
+
+.me-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: grid;
+  min-width: 230px;
+  padding: 8px;
+  border: 1px solid var(--ring);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 20px 40px rgb(11 19 37 / 14%);
+}
+
+.me-menu strong {
+  padding: 8px 12px 0;
+}
+
+.me-menu small {
+  padding: 0 12px 8px;
+  border-bottom: 1px solid var(--ring);
+  color: var(--ink-soft);
+}
+
+.me-menu a,
+.me-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 0;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.me-menu a:hover,
+.me-menu button:hover {
+  background: var(--subtle);
+}
+
+.signup-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.toasts {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: grid;
+  gap: 8px;
+}
+
+.toast {
+  max-width: 380px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 12px 32px rgb(11 19 37 / 25%);
+}
+
+.toast.error {
+  background: #dc2626;
+}
+
+@media (max-width: 1100px) {
+  .topnav a span {
+    display: none;
+  }
+
+  .pill-btn kbd {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    width: calc(100% - 32px);
+    padding: 10px 0;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .topnav {
+    order: 3;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+  }
+
+  .topnav a {
+    padding: 10px 16px;
+  }
+
+  .topbar-actions {
+    margin-left: auto;
+  }
+
+  .pill-btn {
+    display: none;
+  }
+}
