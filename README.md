@@ -98,18 +98,6 @@ API docs are at [http://localhost:8000/api-docs](http://localhost:8000/api-docs)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contributing
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md) for the code layout, checks and pull request steps.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## License
-
-The backend declares the ISC license in `BE/package.json`. This repository has no top-level `LICENSE` file. Image credits are in `BE/hackathon-problem-3-group-travel-matcher/images/ATTRIBUTIONS.md`, `FE/public/cities/CREDITS.txt` and `FE/public/hero/CREDITS.txt`.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 [node-shield]: https://img.shields.io/badge/Node.js-24_LTS-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
 [node-url]: https://nodejs.org
 [react-shield]: https://img.shields.io/badge/React-19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
